@@ -1,0 +1,61 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">
+    {% if not homework_done %}
+    <table class="table table-striped table-bordered table-hover table-dark">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Fan</th>
+                <th scope="col">Vazifa</th>
+                <th scope="col">Yaratilgan</th>
+                <th scope="col">Bajarildi</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for homework in homeworks %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{homework.name}}</td>
+                <td>{{homework.body}}</td>
+                <td>{{homework.created}}</td>
+                <td>
+                    <a href="#">
+                        <div class="form-check">
+                            {% if homework.is_finished == True %}
+                            <input class="form-check-input" type="checkbox" value="" checked>
+                            {% else %}
+                            <input class="form-check-input" type="checkbox" value="" >
+                            {% endif %}
+                            <label class="form-check-label text-light" for="flexCheckDefault">
+                                Tugatildi
+                            </label>
+                        </div>
+                    </a>
+                </td>
+                <td><a href="{% url 'delete_homework' homework.pk %}"><i class="fa fa-trash fa-2x"></i></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <h4>Barcha vazifalar bajarilgan</h4>
+    {% endif %}
+</div>
+<div class=" container">
+    <form method="post">
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Vazifa qo'shish</legend>
+        </fieldset>
+        {% csrf_token %} 
+        {{form|crispy}}
+        <div class="form-group">
+            <button  class="btn btn-warning" type="submit">Joylash</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

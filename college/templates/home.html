@@ -1,0 +1,92 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+
+<section class="container text-center">
+  <h3>Xush kelibsiz {{user.username}}</h3>
+  <hr> <br>
+  <div class="row">
+    <div class="col-md-4">
+      <a href="{% url 'homework' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/homework.jpg' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Vazifalar
+            </h5>
+            Bu yerda sizning uyga vazifalaringiz joy oladi!!
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a href="{% url 'youtube' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/youtube.jpg' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Youtube
+            </h5>
+            O'zingizga kerakli contentlarni youtubedan izlang!!
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a href="{% url 'todo' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/todo.jpg' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Ishlarim
+            </h5>
+            Rejalashtirayotgan ishlaringizni bu yerda belgilab boring!!
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <br><br><br>
+  <div class="row">
+    <div class="col-md-4">
+      <a href="{% url 'books' %}">
+        <div class="card mt-20">
+          <img class="card-img-top" src="{% static 'images/book.jpg' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Kitoblar
+            </h5>
+            Siz foydalanadigan kitoblarni bu yerdan izlang!!
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a href="{% url 'dictionary' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/dictionar.jpg' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Lug'atlar
+            </h5>
+            Notanish chet tili so'zlarini bu yerdan toping!!
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a href="{% url 'wiki' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/wiki.jpg' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              WikiPedia
+            </h5>
+            Uyga vazifalarni bajarishda ma'lumotlarni bu yerdan izlang!!
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock content %}
